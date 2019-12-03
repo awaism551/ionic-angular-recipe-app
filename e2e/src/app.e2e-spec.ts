@@ -4,11 +4,11 @@ describe('new App', () => {
   let page: AppPage;
 
   beforeEach(() => {
-    page = new AppPage();
+	page = new AppPage();
   });
 
   it('should be blank', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toContain('The world is your oyster.');
+	page.navigateTo();
+	expect(page.getParagraphText()).toContain('The world is your oyster.');
   });
 });
