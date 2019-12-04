@@ -1,3 +1,5 @@
+// tslint:disable: no-debugger
+
 import { Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
 
@@ -5,7 +7,8 @@ import { Recipe } from './recipe.model';
   providedIn: 'root'
 })
 export class RecipesService {
-  private recipes: Recipe[] = [
+
+	private recipes: Recipe[] = [
 	{
 		id: 'r1',
 		title: 'Recipe1',
@@ -18,19 +21,27 @@ export class RecipesService {
 		imageUrl: 'assets/images/img2.jpg',
 		ingredients: ['ing1', 'ing2']
 	}
-  ];
+	];
 
-  constructor() {}
+	constructor() {}
 
-  getAllRecipes() {
+	getAllRecipes() {
 	return [...this.recipes]; // spread operator used here, to ensure we return copy of the original array
-  }
+	}
 
-  getRecipe(recipeId: string) {
-	return {
-		...this.recipes.find(recipe => {
-		return recipe.id === recipeId;
-		})
-	};
-  }
+	getRecipe(recipeId: string) {
+		return {
+			...this.recipes.find(recipe => {
+			return recipe.id === recipeId;
+			})
+		};
+	}
+
+	deleteRecipe(recipeId: string) {
+		this.recipes = this.recipes.filter(recipe => {
+			return recipe.id !== recipeId;
+		});
+		debugger;
+		console.log(this.recipes);
+	}
 }

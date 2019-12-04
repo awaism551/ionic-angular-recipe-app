@@ -1,3 +1,5 @@
+// tslint:disable: no-debugger
+
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { RecipesService } from './recipes.service';
@@ -8,13 +10,14 @@ import { RecipesService } from './recipes.service';
   styleUrls: ['./recipes.page.scss']
 })
 export class RecipesPage implements OnInit {
-  recipes: Recipe[];
+	recipes: Recipe[];
 
-  constructor(
-	private recipesService: RecipesService // create private instance of RecipesService at this component
-  ) {}
+	constructor(
+		private recipesService: RecipesService // create private instance of RecipesService at this component
+	) {}
 
-  ngOnInit() {
-	this.recipes = this.recipesService.getAllRecipes();
-  }
+	ngOnInit() {
+		debugger;
+		this.recipes = this.recipesService.getAllRecipes();
+	}
 }
